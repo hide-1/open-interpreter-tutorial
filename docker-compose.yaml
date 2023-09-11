@@ -1,0 +1,14 @@
+services:
+  open-interpreter-tutorial:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: open-interpreter-tutorial
+    restart: always
+    tty: true
+    env_file:
+      - .env
+    working_dir: /root/contexts/
+    volumes:
+      - ./contexts/:/root/contexts/
+      # - <HostOS上のマウント元フォルダパス>:<コンテナ内部のマウント先フォルダパス>
